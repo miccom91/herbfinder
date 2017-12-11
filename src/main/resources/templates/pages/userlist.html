@@ -1,0 +1,28 @@
+<html lang="pl"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Strona główna'">
+<th:block layout:fragment="content">
+    <div th:if="${lista.size()}!=0">
+        <table class="table-responsive">
+            <thead id="userTableHead">
+            <tr>
+                <th>Login</th>
+                <th>Typ</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr th:each="user: ${lista}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastname}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div >
+    <div th:if="${lista.size()}==0">
+        <h1 id="actually0Users">Aktualnie brak użytkowników</h1>
+    </div>
+</th:block>
+</html>
