@@ -28,5 +28,12 @@ public class UserService {
 
     }
 
+    public User getUserById(Integer id){
+        return userRepository.findOne(id);
+    }
+
+    public void updateUser(User user){
+        userRepository.saveAndFlush(user);
+    }
 
 }

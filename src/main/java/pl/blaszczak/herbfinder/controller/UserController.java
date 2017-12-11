@@ -36,4 +36,16 @@ public class UserController {
         return "redirect:/login";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editUser(@PathVariable Integer id, Model model){
+        model.addAttribute("user", userService.getUserById(id));
+        return "pages/edituser";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String editUser(@PathVariable Integer id,@ModelAttribute User user){
+        user.setId(id);
+        userService.updateUser(user);
+        return "redirect:/user";
+    }
 }

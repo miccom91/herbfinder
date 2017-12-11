@@ -1,0 +1,69 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout" th:with="title='Aktualizacja danych użytkownika'">
+<th:block layout:fragment="content">
+    <form class="form-horizontal" method="post" th:action="@{/user/edit/{id}(id = ${user.id})}" th:object="${user}" id='registerForm'>
+        <div class="form-group row">
+            <label for="example-name-input" class="col-2 col-form-label">Imie</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="Roman" th:field="*{name}" type="text" id="example-name-input"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-lastname-input" class="col-2 col-form-label">Nazwisko</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="Kowalski" type="text" th:field="*{lastname}" id="example-lastname-input"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Email</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="nazwa@gmail.com" type="email" th:field="*{email}" id="example-email-input"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-tel-input" class="col-2 col-form-label">Telefon</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="(48)000-000-000 " type="tel"  id="example-tel-input"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-adress-input" class="col-2 col-form-label">Adres</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="Ulica 00/00 Miasto " type="text" th:field="*{adress}" id="example-adress-input"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-postnumber-input" class="col-2 col-form-label">Kod pocztowy</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="26-900" type="text" th:field="*{postnumber}" id="example-postnumber-input"/>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Haslo</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="Minimalna długość(6 znaków)" type="password"
+                       id="example-password-input"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-password-repeat input" class="col-2 col-form-label">Powtórz hasło</label>
+            <div class="col-10">
+                <input class="form-control" placeholder="Powtórz hasło" type="password"
+                       id="example-password-repeat input"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-6">
+                <button type="submit" class="btn btn-primary" id='sendRegisterForm'>Aktualizacja</button>
+            </div>
+        </div>
+    </form>
+</th:block>
+</html>

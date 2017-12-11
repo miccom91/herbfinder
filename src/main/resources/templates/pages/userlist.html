@@ -13,6 +13,7 @@
                 <th>Nazwisko</th>
                 <th>Aktywny</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody >
@@ -21,6 +22,8 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.lastname}"></td>
                 <td th:text="${user.isActive}"></td>
+                <td><a th:href="@{/user/edit/{id}(id = ${user.id})}"
+                       class="btn btn-success" >EDYTUJ </a></td>
                 <td><a th:href="@{/user/delete/{id}(id = ${user.id})}"
                        class="btn btn-danger" >USUŃ </a></td>
             </tr>
