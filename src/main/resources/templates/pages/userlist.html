@@ -3,9 +3,10 @@
       layout:decorator="layout"
       th:with="title='Strona główna'">
 <th:block layout:fragment="content">
-    <div th:if="${lista.size()}!=0">
-        <table class="table-responsive">
-            <thead id="userTableHead">
+
+    <div th:if="${lista.size()}!=0" class="table-responsive" style="padding-top: 30px">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Login</th>
                 <th>Typ</th>
