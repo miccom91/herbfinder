@@ -20,8 +20,9 @@ public class User {
     private String password;
     private String name;
     private String lastname;
-    private String comment;
-    private Boolean isLogged;
-    private Boolean isActive;
+    private String adress;
+    private String postnumber;
+
+    private Boolean isActive = false;
 
 }
