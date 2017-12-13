@@ -47,7 +47,7 @@ public class HerbController {
     public String editHerb(@PathVariable Integer id, @ModelAttribute Herb herb){
         herb.setId(id);
         herbService.updateHerb(herb);
-        return "redirect:/user";
+        return "redirect:/herb";
     }
 
 }
