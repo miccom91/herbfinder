@@ -4,15 +4,17 @@
       th:with="title='Lista lokalizacji'">
 <th:block layout:fragment="content">
 
-    <div th:if="${localizationList.size()}!=0" class="table-responsive" style="padding-top: 30px">
+    <div th:if="${localizationList.size()}!=0" class="table-responsive">
         <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Współrzędne Północne</th>
                 <th>Współrzędne Wschodnie</th>
+                <th>Srodowisko</th>
+                <th>Komentarz</th>
                 <th>Prywatny</th>
-                <th></th>
+
                 <th></th>
             </tr>
             </thead>
@@ -21,6 +23,8 @@
                 <td th:text="${localization.id}"></td>
                 <td th:text="${localization.localizationN}"></td>
                 <td th:text="${localization.localizationE}"></td>
+                <td th:text="${localization.ecology}"></td>
+                <td th:text="${localization.comment}"></td>
                 <td th:text="${localization.isPrivate}"></td>
                 <td><a th:href="@{/localization/edit/{id}(id = ${localization.id})}"
                        class="btn btn-success" >EDYTUJ </a></td>

@@ -19,8 +19,8 @@ public class Localization {
 
     private Integer id;
     public String comment;
-    private double localizationN;
-    private double localizationE;
+    private double localizationN = 49.00;
+    private double localizationE = 14.07;
     private Boolean isPrivate;
     private String ecology;
     private Integer adminMark;

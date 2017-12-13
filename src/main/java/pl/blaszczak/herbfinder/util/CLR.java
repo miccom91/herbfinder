@@ -12,11 +12,12 @@ import pl.blaszczak.herbfinder.repository.UserRepository;
 
 @Component
 @AllArgsConstructor
-public class CLR implements CommandLineRunner{
+public class CLR implements CommandLineRunner {
 
     private final UserRepository userRepository;
     private final LocalizationRepository localizationRepository;
     private final HerbRepository herbRepository;
+
     @Override
     public void run(String... strings) throws Exception {
         userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
@@ -24,5 +25,6 @@ public class CLR implements CommandLineRunner{
         userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
         userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
         localizationRepository.save(Localization.builder().localizationE(59.1231).localizationN(59.1231).isPrivate(true).build());
-        herbRepository.save(Herb.builder().name("Pokrzywa").discription("Zioło na oczyszczenie").build());    }
+        herbRepository.save(Herb.builder().name("Pokrzywa").discription("Zioło na oczyszczenie").build());
+    }
 }

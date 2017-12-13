@@ -3,7 +3,7 @@
       layout:decorator="layout"
       th:with="title='Logowanie'">
 <th:block layout:fragment="content">
-    <form class="form-horizontal" method="post" th:action="@{/login}" id='loginForm' style="padding-top: 30px;">
+    <form class="form-horizontal" method="post" th:action="@{/login}" id='loginForm'>
         <div class="alert alert-danger" th:if="${param.error}" >
             <p id='alertIfWrongLoginOrPassword'>Niewłaściwe nazwa użytkownika lub hasło.</p>
         </div>
