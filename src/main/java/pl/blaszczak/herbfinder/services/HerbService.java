@@ -3,6 +3,7 @@ package pl.blaszczak.herbfinder.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.Herb;
+import pl.blaszczak.herbfinder.domain.User;
 import pl.blaszczak.herbfinder.repository.HerbRepository;
 import pl.blaszczak.herbfinder.repository.UserRepository;
 
@@ -17,10 +18,7 @@ public class HerbService {
     public List<Herb> getListAllHerbs(){
         return herbRepository.findAll();
     }
-    public void createHerb(Herb herb){
-        herb.setIsPrivate(false);
-        herbRepository.save(herb);
-    }
+
 
     public void deleteHerb(Integer id){
         herbRepository.delete(id);
@@ -32,6 +30,11 @@ public class HerbService {
 
     public void updateHerb(Herb herb){
         herbRepository.saveAndFlush(herb);
+    }
+
+    public void createHerb(Herb herb) {
+        herbRepository.save(herb);
+
     }
 
 

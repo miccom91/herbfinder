@@ -1,0 +1,37 @@
+<html lang="pl"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Lista lokalizacji'">
+<th:block layout:fragment="content">
+
+    <div th:if="${localizationList.size()}!=0" class="table-responsive" style="padding-top: 30px">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Współrzędne Północne</th>
+                <th>Współrzędne Wschodnie</th>
+                <th>Prywatny</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr th:each="localization: ${localizationList}">
+                <td th:text="${localization.id}"></td>
+                <td th:text="${localization.localizationN}"></td>
+                <td th:text="${localization.localizationE}"></td>
+                <td th:text="${localization.isPrivate}"></td>
+                <td><a th:href="@{/localization/edit/{id}(id = ${localization.id})}"
+                       class="btn btn-success" >EDYTUJ </a></td>
+                <td><a th:href="@{/localization/delete/{id}(id = ${localization.id})}"
+                       class="btn btn-danger" >USUŃ </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div >
+    <div th:if="${localizationList.size()}==0" style="padding-top: 30px">
+        <h1 id="actually0Users">Aktualnie brak dostępnych lokalizacji</h1>
+    </div>
+</th:block>
+</html>

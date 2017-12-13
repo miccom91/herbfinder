@@ -1,0 +1,36 @@
+<html lang="pl"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Lista ziół'">
+<th:block layout:fragment="content">
+
+    <div th:if="${herbList.size()}!=0" class="table-responsive" style="padding-top: 30px">
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr th:each="herb: ${herbList}">
+                <td th:text="${herb.id}"></td>
+                <td th:text="${herb.name}"></td>
+                <td th:text="${herb.discription}"></td>
+                <td><a th:href="@{/herb/edit/{id}(id = ${herb.id})}"
+                       class="btn btn-success" >EDYTUJ </a></td>
+                <td><a th:href="@{/herb/delete/{id}(id = ${herb.id})}"
+                       class="btn btn-danger" >USUŃ </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div >
+    <div th:if="${herbList.size()}==0" style="padding-top: 30px">
+        <h1 id="actually0Users">Aktualnie brak dostępnych roślin</h1>
+    </div>
+</th:block>
+</html>

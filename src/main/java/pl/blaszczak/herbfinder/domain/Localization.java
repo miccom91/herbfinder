@@ -1,27 +1,29 @@
 package pl.blaszczak.herbfinder.domain;
 
-
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor   //pojo(doczytac) tworzenie prostych konstr.
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-
-public class Herb {
+public class Localization {
     @Id
     @GeneratedValue
 
     private Integer id;
-    private String name;
-    private String discription;
-
+    public String comment;
+    private double localizationN;
+    private double localizationE;
+    private Boolean isPrivate;
+    private String ecology;
+    private Integer adminMark;
 
 
 }

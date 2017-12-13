@@ -33,6 +33,7 @@ public class HerbController {
 
     @PostMapping("/create")
     public String addHerb(@ModelAttribute Herb herb){
+        herbService.createHerb(herb);
         return "redirect:/herb";
     }
 
@@ -48,4 +49,5 @@ public class HerbController {
         herbService.updateHerb(herb);
         return "redirect:/user";
     }
+
 }
