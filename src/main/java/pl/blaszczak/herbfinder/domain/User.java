@@ -22,7 +22,8 @@ public class User {
     private String lastname;
     private String adress;
     private String postnumber;
-
+    @Enumerated(EnumType.STRING)
+    private TypeUser typeUser;
     private Boolean isActive = false;
 
 }

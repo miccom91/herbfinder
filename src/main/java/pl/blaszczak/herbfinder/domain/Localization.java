@@ -20,7 +20,8 @@ public class Localization {
     private double localizationN = 49.00;
     private double localizationE = 14.07;
     private Boolean isPrivate;
-    private String ecology;
+    @Enumerated(EnumType.STRING)
+    private Ecology ecology;
     private Integer adminMark;
 
     @ManyToOne(fetch = FetchType.EAGER)
