@@ -20,7 +20,6 @@
             <tr th:each="herb: ${herbList}">
                 <td th:text="${herb.id}"></td>
                 <td th:text="${herb.name}"></td>
-                <td th:text="${herb.discription}"></td>
                 <td><a th:href="@{/herb/edit/{id}(id = ${herb.id})}"
                        class="btn btn-success" >EDYTUJ </a></td>
                 <td><a th:href="@{/herb/delete/{id}(id = ${herb.id})}"

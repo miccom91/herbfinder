@@ -2,9 +2,7 @@ package pl.blaszczak.herbfinder.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -24,6 +22,10 @@ public class Localization {
     private Boolean isPrivate;
     private String ecology;
     private Integer adminMark;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    private User user;
 
 
 }

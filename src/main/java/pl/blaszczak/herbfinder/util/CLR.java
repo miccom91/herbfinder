@@ -25,6 +25,6 @@ public class CLR implements CommandLineRunner {
         userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
         userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
         localizationRepository.save(Localization.builder().localizationE(59.1231).localizationN(59.1231).isPrivate(true).build());
-        herbRepository.save(Herb.builder().name("Pokrzywa").discription("Zioło na oczyszczenie").build());
+        herbRepository.save(Herb.builder().name("Pokrzywa").build());
     }
 }
