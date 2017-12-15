@@ -12,12 +12,12 @@ import pl.blaszczak.herbfinder.services.LocalizationService;
 @AllArgsConstructor
 public class LocalizationController {
 
-    private  final LocalizationService localizationService;
+    private final LocalizationService localizationService;
 
     @GetMapping
-    public String getAllLocalizations(Model model){
+    public String getAllLocalizations(Model model) {
         model.addAttribute("localizationList", localizationService.getListAllLocalization());
-        return "pages/localizationList";
+        return "pages/localizations";
     }
 
     @GetMapping("/delete/{id}")
@@ -27,12 +27,12 @@ public class LocalizationController {
     }
 
     @GetMapping("/create")
-    public String prepareForm(Localization localization){
+    public String prepareForm(Localization localization) {
         return "pages/addlocalization";
     }
 
     @PostMapping("/create")
-    public String addLocalization(@ModelAttribute Localization localization){
+    public String addLocalization(@ModelAttribute Localization localization) {
         localizationService.createLocalization(localization);
         return "redirect:/localization";
     }
@@ -44,7 +44,7 @@ public class LocalizationController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editLocalization(@PathVariable Integer id, @ModelAttribute Localization localization){
+    public String editLocalization(@PathVariable Integer id, @ModelAttribute Localization localization) {
         localization.setId(id);
         localizationService.updateLocalization(localization);
         return "redirect:/localization";

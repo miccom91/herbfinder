@@ -1,7 +1,6 @@
 package pl.blaszczak.herbfinder.services;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.User;
 import pl.blaszczak.herbfinder.repository.UserRepository;
@@ -12,6 +11,7 @@ import java.util.List;
 //stereotyp który wskazuje, że ta klasa jest serwisem, tzn. oferuje pewną logikę biznesową którą będziemy wykorzystywać w innych miejscach np. kontrolerach; ogólnie w wyższych warstwach
 @AllArgsConstructor
 public class UserService {
+
     private final UserRepository userRepository;
 
     public List<User> getListAllUser() {
@@ -28,11 +28,11 @@ public class UserService {
 
     }
 
-    public User getUserById(Integer id){
+    public User getUserById(Integer id) {
         return userRepository.findOne(id);
     }
 
-    public void updateUser(User user){
+    public void updateUser(User user) {
         userRepository.saveAndFlush(user);
     }
 

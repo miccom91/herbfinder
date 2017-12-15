@@ -20,10 +20,8 @@ public class CLR implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
-        userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
-        userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
-        userRepository.save(User.builder().name("znenek").lastname("Martyiuk").build());
+        userRepository.save(User.builder().name("admin").password("admin").build());
+        userRepository.save(User.builder().name("user").password("user").build());
         localizationRepository.save(Localization.builder().localizationE(59.1231).localizationN(59.1231).isPrivate(true).build());
         herbRepository.save(Herb.builder().name("Pokrzywa").build());
     }

@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-
 @Entity
 @Getter
 @Setter
@@ -12,9 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 public class Localization {
+
     @Id
     @GeneratedValue
-
     private Integer id;
     public String comment;
     private double localizationN;
