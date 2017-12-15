@@ -24,6 +24,6 @@ public class User {
     private String postnumber;
     @Enumerated(EnumType.STRING)
     private TypeUser typeUser;
-    private Boolean isActive = false;
+    private Boolean isActive;
 
 }

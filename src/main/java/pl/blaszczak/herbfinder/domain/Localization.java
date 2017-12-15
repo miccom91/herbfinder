@@ -17,8 +17,8 @@ public class Localization {
 
     private Integer id;
     public String comment;
-    private double localizationN = 49.00;
-    private double localizationE = 14.07;
+    private double localizationN;
+    private double localizationE;
     private Boolean isPrivate;
     @Enumerated(EnumType.STRING)
     private Ecology ecology;
