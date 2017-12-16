@@ -17,10 +17,20 @@
              id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/user}" >Użytkownicy</a></li>
-                <li><a th:href="@{/localization}" >Lokalizacja</a></li>
-                <li><a th:href="@{/localization/create}" >dodanie nowej lokalizacja </a></li>
-                <li><a th:href="@{/herb}" >Rośliny</a></li>
-                <li><a th:href="@{/herb/create}" >dodanie nowej rośliny</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lokalizacja<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a th:href="@{/localization}" >Lista lokalizacji</a></li>
+                        <li><a th:href="@{/localization/create}" >Dodanie nowej lokalizacja </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rośliny<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a th:href="@{/herb}" >Lista Roślin</a></li>
+                        <li><a th:href="@{/herb/create}" >Dodanie nowej rośliny</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>

@@ -1,10 +1,11 @@
-<html lang="pl"  xmlns:th="http://www.thymeleaf.org"
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout"
       th:with="title='Strona główna'">
-    <th:block layout:fragment="content">
-        <div class="row">
-            <h1>To jest tekst</h1>
-        </div>
-    </th:block>
+<th:block layout:fragment="content">
+    <div class="jumbotron">
+        <h1 th:text="${nameapp}"/>
+        <p th:text="${deskriptionapp}"/>
+    </div>
+</th:block>
 </html>

@@ -17,7 +17,6 @@ public class HerbService {
         return herbRepository.findAll();
     }
 
-
     public void deleteHerb(Integer id) {
         herbRepository.delete(id);
     }
@@ -32,8 +31,6 @@ public class HerbService {
 
     public void createHerb(Herb herb) {
         herbRepository.save(herb);
-
     }
-
 
 }

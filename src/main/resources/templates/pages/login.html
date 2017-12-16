@@ -4,16 +4,19 @@
       th:with="title='Logowanie'">
 <th:block layout:fragment="content">
     <form class="form-horizontal" method="post" th:action="@{/login}" id='loginForm'>
+        <div class="alert alert-danger col-lg-offset-3 col-lg-6" th:if="${param.error}" id='errorDivWithCommunicate'>
+            <p>Niewłaściwe nazwa użytkownika lub hasło.</p>
+        </div>
         <div class="form-group row" id='formLoginInput'>
             <label for="loginInput" class="col-lg-offset-3 col-lg-6">Login:</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input name="username" type="text" class="form-control" id='loginInput' placeholder="Login" />
+                <input name="email" type="text" class="form-control" id='loginInput' />
             </div>
         </div>
         <div class="form-group row">
             <label for="passwordInput" class="col-lg-offset-3 col-lg-6">Hasło:</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input name="password" type="password" class="form-control" id='passwordInput' placeholder="Hasło" />
+                <input name="password" type="password" class="form-control" id='passwordInput' />
             </div>
         </div>
         <div class="form-group">

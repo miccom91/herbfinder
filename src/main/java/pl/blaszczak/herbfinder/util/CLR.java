@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.blaszczak.herbfinder.domain.Herb;
 import pl.blaszczak.herbfinder.domain.Localization;
+import pl.blaszczak.herbfinder.domain.TypeUser;
 import pl.blaszczak.herbfinder.domain.User;
 import pl.blaszczak.herbfinder.repository.HerbRepository;
 import pl.blaszczak.herbfinder.repository.LocalizationRepository;
@@ -20,8 +21,8 @@ public class CLR implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        userRepository.save(User.builder().name("admin").password("admin").build());
-        userRepository.save(User.builder().name("user").password("user").build());
+        userRepository.save(User.builder().name("admin").password("admin").typeUser(TypeUser.ADMIN).build());
+        userRepository.save(User.builder().name("user").password("user").typeUser(TypeUser.USER).build());
         localizationRepository.save(Localization.builder().localizationE(59.1231).localizationN(59.1231).isPrivate(true).build());
         herbRepository.save(Herb.builder().name("Pokrzywa").build());
     }

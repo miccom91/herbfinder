@@ -1,6 +1,7 @@
 package pl.blaszczak.herbfinder.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @GetMapping
-    public String getHome() {
+    public String getHome(Model model) {
+        model.addAttribute("nameapp","HerbFinder");
+        model.addAttribute("deskriptionapp","Aplikacja mająca na celu ułatwienie lokalizowania ziół polskich");
         return "pages/index";
     }
 

@@ -4,19 +4,19 @@
 <th:block layout:fragment="content">
     <form class="form-horizontal" method="post" th:action="@{/herb/create}" th:object="${herb}" id='addHerbForm'>
         <div class="form-group row">
-            <label for="example-name-input" class="col-2 col-form-label">Nazwa rośliny</label>
-            <div class="col-10">
+            <label for="example-name-input" class="col-lg-offset-3 col-lg-6">Nazwa rośliny</label>
+            <div class="col-lg-offset-3 col-lg-6">
                 <input class="form-control" placeholder="Pokrzywa" th:field="*{name}" type="text" id="example-name-input"/>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-discription-input" class="col-2 col-form-label">Opis</label>
-            <div class="col-10">
+            <label for="example-discription-input" class="col-lg-offset-3 col-lg-6">Opis</label>
+            <div class="col-lg-offset-3 col-lg-6">
                 <input class="form-control" placeholder="Roślina oczyszczająca" type="text" id="example-discription-input"/>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-xs-offset-4 col-xs-6">
+            <div class="col-lg-offset-3 col-lg-6">
                 <button type="submit" class="btn btn-primary" id='sendRegisterForm'>Dodaj</button>
             </div>
         </div>

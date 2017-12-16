@@ -4,34 +4,34 @@
 <th:block layout:fragment="content">
     <form class="form-horizontal" method="post" th:action="@{/localization/edit/{id}(id = ${localization.id})}" th:object="${localization}" id='localizationForm'>   <!--wprowadzenie dod. roznic w stos do addlocalization -->
         <div class="form-group row">
-            <label for="example-localizationN-input" class="col-2 col-form-label">Szerokość gęograficzna</label>
-            <div class="col-10">
+            <label for="example-localizationN-input" class="col-lg-offset-3 col-lg-6">Szerokość gęograficzna</label>
+            <div class="col-lg-offset-3 col-lg-6">
                 <input step="0.01" min="49" max="54.50" class="form-control" placeholder="0.0000" th:field="*{localizationN}" type="number" id="example-localizationN-input"/>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-localizationE-input" class="col-2 col-form-label">Długość geograficzna</label>
-            <div class="col-10">
+            <label for="example-localizationE-input" class="col-lg-offset-3 col-lg-6">Długość geograficzna</label>
+            <div class="col-lg-offset-3 col-lg-6">
                 <input step="0.01" min="14.07" max="24.08"  class="form-control" placeholder="0.000" type="number" th:field="*{localizationE}" id="example-localizationE-input"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="example-ecology-input" class="col-2 col-form-label">Srodowisko</label>
-            <div class="col-10">
+            <label for="example-ecology-input" class="col-lg-offset-3 col-lg-6">Srodowisko</label>
+            <div class="col-lg-offset-3 col-lg-6">
                 <input class="form-control" placeholder="Srodowisko naturalne" type="text" th:field="*{ecology}" id="example-ecology-input"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="example-comment-input" class="col-2 col-form-label">Komentarz</label>
-            <div class="col-10">
+            <label for="example-comment-input" class="col-lg-offset-3 col-lg-6">Komentarz</label>
+            <div class="col-lg-offset-3 col-lg-6">
                 <input class="form-control" placeholder="Uwaga na dziki" type="text" th:field="*{comment}" id="example-comment-input"/>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-xs-offset-4 col-xs-6">
+            <div class="col-lg-offset-3 col-lg-6">
                 <button type="submit" class="btn btn-primary" id='sendRegisterForm'>Aktualizuj</button>
             </div>
         </div>
