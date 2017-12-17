@@ -23,9 +23,10 @@ public class Localization {
     private Ecology ecology;
     private Integer adminMark;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private User user;
-
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Herb herb;
 
 }

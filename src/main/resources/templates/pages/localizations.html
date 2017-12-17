@@ -26,8 +26,10 @@
                 <td th:text="${localization.ecology}"></td>
                 <td th:text="${localization.comment}"></td>
                 <td th:text="${localization.isPrivate}"></td>
-                <td><a th:href="@{/localization/edit/{id}(id = ${localization.id})}"
-                       class="btn btn-success" >EDYTUJ </a></td>
+                <td><a th:href="@{/localization/show/{id}(id = ${localization.id})}"
+                       class="btn btn-success" >Szczegóły </a></td>
+                <!--<td><a th:href="@{/localization/edit/{id}(id = ${localization.id})}"
+                       class="btn btn-success" >EDYTUJ </a></td> -->
                 <td><a th:href="@{/localization/delete/{id}(id = ${localization.id})}"
                        class="btn btn-danger" >USUŃ </a></td>
             </tr>

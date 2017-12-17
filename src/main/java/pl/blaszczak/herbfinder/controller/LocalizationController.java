@@ -49,4 +49,10 @@ public class LocalizationController {
         localizationService.updateLocalization(localization);
         return "redirect:/localization";
     }
+
+    @GetMapping("/show/{id}")
+    public String showUser(@PathVariable Integer id, Model model) {
+        model.addAttribute("localization", localizationService.getLocalizationById(id));
+        return "pages/localization";
+    }
 }

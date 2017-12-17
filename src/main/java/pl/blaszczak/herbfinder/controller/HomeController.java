@@ -11,13 +11,18 @@ public class HomeController {
 
     @GetMapping
     public String getHome(Model model) {
-        model.addAttribute("nameapp","HerbFinder");
-        model.addAttribute("deskriptionapp","Aplikacja mająca na celu ułatwienie lokalizowania ziół polskich");
+        model.addAttribute("nameapp", "HerbFinder");
+        model.addAttribute("deskriptionapp", "Aplikacja mająca na celu ułatwienie lokalizowania ziół polskich");
         return "pages/index";
     }
 
     @GetMapping("/login")
     public String getLogin() {
         return "pages/login";
+    }
+
+    @GetMapping("/errors")
+    public String error() {
+        return "pages/error";
     }
 }

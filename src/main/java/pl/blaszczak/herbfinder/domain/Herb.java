@@ -3,6 +3,7 @@ package pl.blaszczak.herbfinder.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,4 +17,6 @@ public class Herb {
     @GeneratedValue
     private Integer id;
     private String name;
+    @OneToMany
+    private List<Attribute> attributes;
 }

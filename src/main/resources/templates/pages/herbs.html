@@ -20,8 +20,10 @@
             <tr th:each="herb: ${herbList}">
                 <td th:text="${herb.id}"></td>
                 <td th:text="${herb.name}"></td>
-                <td><a th:href="@{/herb/edit/{id}(id = ${herb.id})}"
-                       class="btn btn-success" >EDYTUJ </a></td>
+                <td><a th:href="@{/herb/show/{id}(id = ${herb.id})}"
+                       class="btn btn-primary" >Szczegóły </a></td>
+                <!--<td><a th:href="@{/herb/edit/{id}(id = ${herb.id})}"
+                       class="btn btn-success" >EDYTUJ </a></td> -->
                 <td><a th:href="@{/herb/delete/{id}(id = ${herb.id})}"
                        class="btn btn-danger" >USUŃ </a></td>
             </tr>

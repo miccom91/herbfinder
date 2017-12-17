@@ -1,0 +1,30 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Lista własciwości'">
+<th:block layout:fragment="content">
+
+    <div th:if="${attributeList.size()}!=0" class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Właściwość</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="attribute: ${attributeList}">
+                <td th:text="${attribute.description}"></td>
+                <td><a th:href="@{/attribute/edit/{id}(id = ${attribute.id})}"
+                       class="btn btn-danger">Edytuj </a></td>
+                <td><a th:href="@{/attribute/delete/{id}(id = ${attribute.id})}"
+                       class="btn btn-danger">USUŃ </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${attributeList.size()}==0" style="padding-top: 30px">
+        <h1 id="actually0Users">Aktualnie brak własciwosci atrybutu</h1>
+    </div>
+</th:block>
+</html>

@@ -1,0 +1,14 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout" th:with="title='Szczegóły konta'">
+<th:block layout:fragment="content">
+    <div class="jumbotron">
+        <h1 th:text="${user.name} + ${user.lastname}"/>
+        <p th:text="${user.email}"/>
+        <p th:text="${user.adress}"/>
+        <p th:text="${user.postnumber}"/>
+        <p th:text="${user.isActive}"/>
+        <p th:text="${user.typeUser}"/>
+    </div>
+</th:block>
+</html>

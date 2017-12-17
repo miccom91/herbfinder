@@ -49,5 +49,9 @@ public class HerbController {
         herbService.updateHerb(herb);
         return "redirect:/herb";
     }
-
+    @GetMapping("/show/{id}")
+    public String showHerb(@PathVariable Integer id, Model model) {
+        model.addAttribute("herb", herbService.getHerbById(id));
+        return "pages/herb";
+    }
 }

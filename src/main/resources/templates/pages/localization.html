@@ -1,0 +1,15 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout" th:with="title='Szczegóły lokalizacji'">
+<th:block layout:fragment="content">
+    <div class="jumbotron">
+        <h1 th:text="${localization.comment}"/>
+        <p th:text="${localization.localizationN}"/>
+        <p th:text="${localization.localizationE}"/>
+        <p th:text="${localization.isPrivate}"/>
+        <p th:text="${localization.ecology}"/>
+        <p th:text="${localization.adminMark}"/>
+        <p th:text="${localization.user.name}"/>
+    </div>
+</th:block>
+</html>

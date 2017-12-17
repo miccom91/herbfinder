@@ -31,10 +31,21 @@
                         <li><a th:href="@{/herb/create}" >Dodanie nowej rośliny</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Właściwości<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a th:href="@{/attribute}" >Lista Właściwości</a></li>
+                        <li><a th:href="@{/attribute/create}" >Dodanie nowej właściwości</a></li>
+                    </ul>
+                </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" sec:authorize="!isAuthenticated()">
                 <li><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
                 <li><a th:href="@{/user/registration}"><span class="glyphicon glyphicon-leaf"></span> Rejestracja</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" sec:authorize="isAuthenticated()">
+                <li><a th:inline="text"><span class="glyphicon glyphicon-user"></span> [[${#httpServletRequest.remoteUser}]]</a></li>
+                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Wyloguj</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
