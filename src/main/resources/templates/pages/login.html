@@ -5,7 +5,7 @@
 <th:block layout:fragment="content">
     <form class="form-horizontal" method="post" th:action="@{/login}" id='loginForm'>
         <div class="alert alert-danger col-lg-offset-3 col-lg-6" th:if="${param.error}" id='errorDivWithCommunicate'>
-            <p>Niewłaściwe nazwa użytkownika lub hasło.</p>
+            <p>Niewłaściwe nazwa użytkownika, hasło lub konto nie jest aktywowane.</p>
         </div>
         <div class="form-group row" id='formLoginInput'>
             <label for="loginInput" class="col-lg-offset-3 col-lg-6">Login:</label>

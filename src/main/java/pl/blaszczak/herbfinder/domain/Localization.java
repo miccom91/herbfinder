@@ -26,7 +26,8 @@ public class Localization {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private User user;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private Herb herb;
 
 }

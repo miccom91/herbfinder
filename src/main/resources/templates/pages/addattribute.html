@@ -4,14 +4,15 @@
 <th:block layout:fragment="content">
     <form class="form-horizontal" method="post" th:action="@{/attribute/create}" th:object="${attribute}" id='addAttributeForm'>
         <div class="form-group row">
-            <label for="example-discription-input" class="col-lg-offset-3 col-lg-6">Właściwości</label>
+            <label for="discription-input" class="col-lg-offset-3 col-lg-6">Właściwości</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input class="form-control" placeholder="Moczopędna" th:field="*{description}" type="text" id="example-discription-input"/>
+                <input class="form-control" placeholder="Moczopędna" th:field="*{description}" type="text" id="discription-input"/>
+                <div th:if="${#fields.hasErrors('description')}"  th:errors="*{description}" class="alert alert-danger" > </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-offset-3 col-lg-6">
-                <button type="submit" class="btn btn-primary" id='sendRegisterForm'>Dodaj</button>
+                <button type="submit" class="btn btn-primary" id='sendAttributeForm'>Dodaj</button>
             </div>
         </div>
     </form>

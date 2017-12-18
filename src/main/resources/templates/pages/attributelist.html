@@ -16,7 +16,7 @@
             <tr th:each="attribute: ${attributeList}">
                 <td th:text="${attribute.description}"></td>
                 <td><a th:href="@{/attribute/edit/{id}(id = ${attribute.id})}"
-                       class="btn btn-danger">Edytuj </a></td>
+                       class="btn btn-success">Edytuj </a></td>
                 <td><a th:href="@{/attribute/delete/{id}(id = ${attribute.id})}"
                        class="btn btn-danger">USUŃ </a></td>
             </tr>

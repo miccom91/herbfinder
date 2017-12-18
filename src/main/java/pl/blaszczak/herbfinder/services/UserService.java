@@ -3,6 +3,7 @@ package pl.blaszczak.herbfinder.services;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.blaszczak.herbfinder.domain.TypeUser;
 import pl.blaszczak.herbfinder.domain.User;
 import pl.blaszczak.herbfinder.repository.UserRepository;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public List<User> getListAllUser() {
         return userRepository.findAll();
@@ -24,6 +26,9 @@ public class UserService {
     }
 
     public void createUser(User user) {
+        String password = user.getPassword();
+        user.setPassword(passwordEncoder.encode(password));
+        user.setTypeUser(TypeUser.USER);
         user.setIsActive(false);
         userRepository.save(user);
     }

@@ -17,6 +17,7 @@ public class Herb {
     @GeneratedValue
     private Integer id;
     private String name;
-    @OneToMany
-    private List<Attribute> attributes;
+    private String description;
+    @ManyToOne
+    private Attribute attribute;
 }

@@ -2,34 +2,48 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout" th:with="title='Dodanie miejsca występowania roślin'">
 <th:block layout:fragment="content">
-    <form class="form-horizontal" method="post" th:action="@{/localization/create}" th:object="${localization}" id='localizationForm'>
+    <form class="form-horizontal" method="post" th:action="@{/localization/create}" th:object="${localization}"
+          id='localizationForm'>
         <div class="form-group row">
-            <label for="example-localizationN-input" class="col-lg-offset-3 col-lg-6">Szerokość gęograficzna</label>
+            <label for="localizationN-input" class="col-lg-offset-3 col-lg-6">Szerokość gęograficzna</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input step="0.01" min="49" max="54.50" class="form-control" placeholder="0.0000" th:field="*{localizationN}" type="number" id="example-localizationN-input"/>
+                <input step="0.01" min="49" max="54.50" class="form-control" placeholder="0.0000"
+                       th:field="*{localizationN}" type="number" id="localizationN-input"/>
+                <div th:if="${#fields.hasErrors('localizationN')}"  th:errors="*{localizationN}" class="alert alert-danger" > </div>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-localizationE-input" class="col-lg-offset-3 col-lg-6">Długość geograficzna</label>
+            <label for="localizationE-input" class="col-lg-offset-3 col-lg-6">Długość geograficzna</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input step="0.01" min="14.07" max="24.08"  class="form-control" placeholder="0.000" type="number" th:field="*{localizationE}" id="example-localizationE-input"/>
+                <input step="0.01" min="14.07" max="24.08" class="form-control" placeholder="0.000" type="number"
+                       th:field="*{localizationE}" id="localizationE-input"/>
+                <div th:if="${#fields.hasErrors('localizationE')}"  th:errors="*{localizationE}" class="alert alert-danger" > </div>
             </div>
         </div>
-
         <div class="form-group row">
-            <label for="example-ecology-input" class="col-lg-offset-3 col-lg-6">Srodowisko</label>
+            <label for="ecology-input" class="col-lg-offset-3 col-lg-6">Srodowisko</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input class="form-control" placeholder="Srodowisko naturalne" type="text" th:field="*{ecology}" id="example-ecology-input"/>
+                <select class="form-control" id="ecology-input" th:field="*{ecology}">
+                    <option th:value="GOOD" th:text="Dobre"/>
+                    <option th:value="BAD" th:text="Złe"/>
+                </select>
             </div>
         </div>
-
         <div class="form-group row">
-            <label for="example-comment-input" class="col-lg-offset-3 col-lg-6">Komentarz</label>
+            <label for="herbselect" class="col-lg-offset-3 col-lg-6">Roślina</label>
             <div class="col-lg-offset-3 col-lg-6">
-                <input class="form-control" placeholder="Uwaga na dziki" type="text" th:field="*{comment}" id="example-comment-input"/>
+                <select class="form-control" id="herbselect" th:field="*{herb.id}">
+                    <option th:each="her: ${herblist}" th:text="${her.name}" th:value="${her.id}"/>
+                </select>
             </div>
         </div>
-
+        <div class="form-group row">
+            <label for="comment-input" class="col-lg-offset-3 col-lg-6">Komentarz</label>
+            <div class="col-lg-offset-3 col-lg-6">
+                <textarea class="form-control" rows="10" cols="20" th:field="*{comment}" id="comment-input"/>
+                <div th:if="${#fields.hasErrors('comment')}"  th:errors="*{comment}" class="alert alert-danger" > </div>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-lg-offset-3 col-lg-6">
                 <button type="submit" class="btn btn-primary" id='sendRegisterForm'>Dodaj</button>

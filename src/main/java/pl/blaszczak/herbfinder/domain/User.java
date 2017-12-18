@@ -20,6 +20,7 @@ public class User {
     private String password;
     private String name;
     private String lastname;
+    private String phone;
     private String adress;
     private String postnumber;
     @Enumerated(EnumType.STRING)

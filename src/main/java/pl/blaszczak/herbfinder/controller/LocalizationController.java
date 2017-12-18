@@ -1,10 +1,14 @@
 package pl.blaszczak.herbfinder.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.blaszczak.herbfinder.domain.Ecology;
 import pl.blaszczak.herbfinder.domain.Localization;
+import pl.blaszczak.herbfinder.services.HerbService;
 import pl.blaszczak.herbfinder.services.LocalizationService;
 
 @Controller
@@ -13,6 +17,8 @@ import pl.blaszczak.herbfinder.services.LocalizationService;
 public class LocalizationController {
 
     private final LocalizationService localizationService;
+
+    private final HerbService herbService;
 
     @GetMapping
     public String getAllLocalizations(Model model) {
@@ -27,13 +33,16 @@ public class LocalizationController {
     }
 
     @GetMapping("/create")
-    public String prepareForm(Localization localization) {
+    public String prepareForm(Localization localization, Model model) {
+        model.addAttribute("herblist", herbService.getListAllHerbs());
         return "pages/addlocalization";
     }
 
     @PostMapping("/create")
     public String addLocalization(@ModelAttribute Localization localization) {
-        localizationService.createLocalization(localization);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        localizationService.createLocalization(localization, name);
         return "redirect:/localization";
     }
 

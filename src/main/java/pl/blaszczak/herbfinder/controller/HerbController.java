@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.blaszczak.herbfinder.domain.Attribute;
 import pl.blaszczak.herbfinder.domain.Herb;
+import pl.blaszczak.herbfinder.services.AttributeService;
 import pl.blaszczak.herbfinder.services.HerbService;
 
 @Controller
@@ -13,6 +15,8 @@ import pl.blaszczak.herbfinder.services.HerbService;
 public class HerbController {
 
     private final HerbService herbService;
+
+    private final AttributeService attributeService;
 
     @GetMapping
     public String getAllHerbs(Model model) {
@@ -27,7 +31,8 @@ public class HerbController {
     }
 
     @GetMapping("/create")
-    public String prepareForm(Herb herb) {
+    public String prepareForm(Herb herb, Model model) {
+        model.addAttribute("attributeList", attributeService.getListAllAttributes());
         return "pages/addherb";
     }
 
@@ -49,6 +54,7 @@ public class HerbController {
         herbService.updateHerb(herb);
         return "redirect:/herb";
     }
+
     @GetMapping("/show/{id}")
     public String showHerb(@PathVariable Integer id, Model model) {
         model.addAttribute("herb", herbService.getHerbById(id));

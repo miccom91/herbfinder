@@ -3,8 +3,10 @@ package pl.blaszczak.herbfinder.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.blaszczak.herbfinder.domain.Ecology;
 import pl.blaszczak.herbfinder.domain.Localization;
 import pl.blaszczak.herbfinder.repository.LocalizationRepository;
+import pl.blaszczak.herbfinder.repository.UserRepository;
 
 import java.util.List;
 
@@ -14,8 +16,13 @@ public class LocalizationService {
 
     private final LocalizationRepository localizationRepository;
 
-    public void createLocalization(Localization localization) {
+    private final UserRepository userRepository;
+
+    public void createLocalization(Localization localization,String name) {
         localization.setIsPrivate(false);
+        localization.setAdminMark(0);
+        localization.setEcology(Ecology.GOOD);
+        localization.setUser(userRepository.findByEmail(name));
         localizationRepository.save(localization);
     }
 
