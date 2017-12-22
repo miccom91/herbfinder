@@ -26,5 +26,4 @@ public class User {
     @Enumerated(EnumType.STRING)
     private TypeUser typeUser;
     private Boolean isActive;
-
 }

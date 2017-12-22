@@ -21,7 +21,6 @@ public class LocalizationService {
     public void createLocalization(Localization localization,String name) {
         localization.setIsPrivate(false);
         localization.setAdminMark(0);
-        localization.setEcology(Ecology.GOOD);
         localization.setUser(userRepository.findByEmail(name));
         localizationRepository.save(localization);
     }

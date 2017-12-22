@@ -1,14 +1,16 @@
 package pl.blaszczak.herbfinder.controller;
 
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.blaszczak.herbfinder.domain.Attribute;
+import pl.blaszczak.herbfinder.dto.AttributeTO;
 import pl.blaszczak.herbfinder.services.AttributeService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/attribute")
@@ -30,13 +32,16 @@ public class AttributeController {
     }
 
     @GetMapping("/create")
-    public String prepareForm(Attribute attribute) {
+    public String prepareForm(AttributeTO attributeTO) {
         return "pages/addattribute";
     }
 
     @PostMapping("/create")
-    public String addAttribute(@ModelAttribute Attribute attribute) {
-        attributeService.createAttribute(attribute);
+    public String addAttribute(@ModelAttribute @Valid AttributeTO attributeTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "pages/addattribute";
+        }
+        attributeService.createAttribute(attributeTO);
         return "redirect:/attribute";
     }
 

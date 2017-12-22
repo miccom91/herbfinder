@@ -20,7 +20,8 @@ public class HerbFinderSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user").hasAuthority("ADMIN")
+                .antMatchers("/user").permitAll()
+                //.hasAuthority("ADMIN")
                 .and().formLogin().loginPage("/login")
                 .and().exceptionHandling().accessDeniedPage("/errors");
         http.csrf().disable();
@@ -31,7 +32,7 @@ public class HerbFinderSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("select email,password,IS_ACTIVE from user where email=? ")
-                .authoritiesByUsernameQuery("select email,TYPE_USER  from user where email=?").passwordEncoder(new BCryptPasswordEncoder(12));;
+                .authoritiesByUsernameQuery("select email,TYPE_USER  from user where email=?").passwordEncoder(new BCryptPasswordEncoder(12));
     }
 
     @Bean

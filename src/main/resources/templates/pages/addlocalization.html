@@ -5,6 +5,14 @@
     <form class="form-horizontal" method="post" th:action="@{/localization/create}" th:object="${localization}"
           id='localizationForm'>
         <div class="form-group row">
+            <label for="herbselect" class="col-lg-offset-3 col-lg-6">Roślina</label>
+            <div class="col-lg-offset-3 col-lg-6">
+                <select class="form-control" id="herbselect" th:field="*{herb.id}">
+                    <option th:each="her: ${herblist}" th:text="${her.name}" th:value="${her.id}"/>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="localizationN-input" class="col-lg-offset-3 col-lg-6">Szerokość gęograficzna</label>
             <div class="col-lg-offset-3 col-lg-6">
                 <input step="0.01" min="49" max="54.50" class="form-control" placeholder="0.0000"
@@ -26,14 +34,6 @@
                 <select class="form-control" id="ecology-input" th:field="*{ecology}">
                     <option th:value="GOOD" th:text="Dobre"/>
                     <option th:value="BAD" th:text="Złe"/>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="herbselect" class="col-lg-offset-3 col-lg-6">Roślina</label>
-            <div class="col-lg-offset-3 col-lg-6">
-                <select class="form-control" id="herbselect" th:field="*{herb.id}">
-                    <option th:each="her: ${herblist}" th:text="${her.name}" th:value="${her.id}"/>
                 </select>
             </div>
         </div>
