@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.blaszczak.herbfinder.domain.Attribute;
 import pl.blaszczak.herbfinder.domain.Herb;
+import pl.blaszczak.herbfinder.dto.HerbTO;
 import pl.blaszczak.herbfinder.services.AttributeService;
 import pl.blaszczak.herbfinder.services.HerbService;
 
@@ -31,14 +32,14 @@ public class HerbController {
     }
 
     @GetMapping("/create")
-    public String prepareForm(Herb herb, Model model) {
+    public String prepareForm(HerbTO herbTO, Model model) {
         model.addAttribute("attributeList", attributeService.getListAllAttributes());
         return "pages/addherb";
     }
 
     @PostMapping("/create")
-    public String addHerb(@ModelAttribute Herb herb) {
-        herbService.createHerb(herb);
+    public String addHerb(@ModelAttribute HerbTO herbTO) {
+        herbService.createHerb(herbTO);
         return "redirect:/herb";
     }
 

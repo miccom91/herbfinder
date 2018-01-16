@@ -20,4 +20,6 @@ public class Herb {
     private String description;
     @ManyToOne
     private Attribute attribute;
+    @Column(length = 20000000)
+    private byte[] image;
 }

@@ -2,21 +2,30 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout" th:with="title='Dodanie rośliny'">
 <th:block layout:fragment="content">
-    <form class="form-horizontal" method="post" th:action="@{/herb/create}" th:object="${herb}" id='addHerbForm'>
+    <form class="form-horizontal" method="post" th:action="@{/herb/create}" th:object="${herbTO}" id='addHerbForm'>
         <div class="form-group row">
             <label for="name-input" class="col-lg-offset-3 col-lg-6">Nazwa rośliny</label>
             <div class="col-lg-offset-3 col-lg-6">
                 <input class="form-control" placeholder="Pokrzywa" th:field="*{name}" type="text"
                        id="name-input"/>
-                <div th:if="${#fields.hasErrors('name')}"  th:errors="*{name}" class="alert alert-danger" > </div>
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger"></div>
             </div>
         </div>
         <div class="form-group row">
             <label for="attribute-select" class="col-lg-offset-3 col-lg-6">Właściwość</label>
             <div class="col-lg-offset-3 col-lg-6">
                 <select class="form-control" id="attribute-select" th:field="*{attribute.id}">
-                    <option th:each="attribut: ${attributeList}" th:text="${attribut.description}" th:value="${attribut.id}"/>
+                    <option th:each="attribut: ${attributeList}" th:text="${attribut.description}"
+                            th:value="${attribut.id}"/>
                 </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-group">
+                <label class="col-lg-offset-3 col-lg-6">Plik ze zdięciem:</label>
+                <div class="col-lg-offset-3 col-lg-6">
+                    <input id="file" type="file" class="form-control" th:field="*{multipartFile}" required="true"/>
+                </div>
             </div>
         </div>
         <div class="form-group">

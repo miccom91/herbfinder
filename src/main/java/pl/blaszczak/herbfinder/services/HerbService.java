@@ -3,6 +3,7 @@ package pl.blaszczak.herbfinder.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.Herb;
+import pl.blaszczak.herbfinder.dto.HerbTO;
 import pl.blaszczak.herbfinder.repository.HerbRepository;
 
 import java.util.List;
@@ -29,8 +30,8 @@ public class HerbService {
         herbRepository.saveAndFlush(herb);
     }
 
-    public void createHerb(Herb herb) {
-        herbRepository.save(herb);
+    public void createHerb(HerbTO herbTO) {
+        //herbRepository.save(herb);
     }
 
 }
