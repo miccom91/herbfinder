@@ -2,7 +2,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout" th:with="title='Dodanie miejsca występowania roślin'">
 <th:block layout:fragment="content">
-    <form class="form-horizontal" method="post" th:action="@{/localization/create}" th:object="${localization}"
+    <form class="form-horizontal" method="post" th:action="@{/localization/create}" th:object="${localizationTO}"
           id='localizationForm'>
         <div class="form-group row">
             <label for="herbselect" class="col-lg-offset-3 col-lg-6">Roślina</label>

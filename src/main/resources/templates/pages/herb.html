@@ -2,9 +2,18 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout" th:with="title='Szczegóły rośliny'">
 <th:block layout:fragment="content">
-    <div class="jumbotron">
-        <h1 th:text="${herb.name}"/>
-        <p th:text="${herb.attribute.description}"/>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-responsive center" th:if="*{herb.image != null}" th:src="@{'data:image/jpg;base64,'+ *{herb.image}}" />
+        </div>
+        <div class="col-md-6">
+            <div class="caption-full">
+                <h4 th:text="${herb.name}"></h4>
+                <p th:text="${herb.description}"></p>
+                <!--<a class="btn btn-success" th:href="@{/order/add/{id}(id = ${fish.id})}"  sec:authorize="hasAuthority('USER')" id="orderButtonFishDescriptionPage">Zamawiam</a>-->
+                <!--<a class="btn btn-warning" th:href="@{/fish/edit/{id}(id = ${fish.id})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Edytuj</a>-->
+            </div>
+        </div>
     </div>
 </th:block>
 </html>

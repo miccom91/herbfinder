@@ -3,12 +3,15 @@ package pl.blaszczak.herbfinder.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.blaszczak.herbfinder.domain.Attribute;
 import pl.blaszczak.herbfinder.domain.Herb;
 import pl.blaszczak.herbfinder.dto.HerbTO;
 import pl.blaszczak.herbfinder.services.AttributeService;
 import pl.blaszczak.herbfinder.services.HerbService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/herb")
@@ -38,7 +41,11 @@ public class HerbController {
     }
 
     @PostMapping("/create")
-    public String addHerb(@ModelAttribute HerbTO herbTO) {
+    public String addHerb(@ModelAttribute @Valid HerbTO herbTO, BindingResult bindingResult, Model model) {
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("attributeList", attributeService.getListAllAttributes());
+            return "pages/addherb";
+        }
         herbService.createHerb(herbTO);
         return "redirect:/herb";
     }

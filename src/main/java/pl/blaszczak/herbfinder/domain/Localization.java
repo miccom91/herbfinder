@@ -3,6 +3,7 @@ package pl.blaszczak.herbfinder.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Getter
