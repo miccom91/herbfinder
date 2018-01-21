@@ -17,7 +17,6 @@
             <div class="col-lg-offset-3 col-lg-6">
                 <input step="0.01" min="49" max="54.50" class="form-control" placeholder="0.0000"
                        th:field="*{localizationN}" type="number" id="localizationN-input"/>
-                <div th:if="${#fields.hasErrors('localizationN')}"  th:errors="*{localizationN}" class="alert alert-danger" > </div>
             </div>
         </div>
         <div class="form-group row">
@@ -25,7 +24,6 @@
             <div class="col-lg-offset-3 col-lg-6">
                 <input step="0.01" min="14.07" max="24.08" class="form-control" placeholder="0.000" type="number"
                        th:field="*{localizationE}" id="localizationE-input"/>
-                <div th:if="${#fields.hasErrors('localizationE')}"  th:errors="*{localizationE}" class="alert alert-danger" > </div>
             </div>
         </div>
         <div class="form-group row">

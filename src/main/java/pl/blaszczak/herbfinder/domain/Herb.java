@@ -17,6 +17,7 @@ public class Herb {
     @GeneratedValue
     private Integer id;
     private String name;
+    @Column(length = 10000)
     private String description;
     @ManyToOne
     private Attribute attribute;

@@ -49,7 +49,7 @@ public class LocalizationController {
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String name = authentication.getName();
-        //localizationService.createLocalization(localization, name);
+        localizationService.createLocalization(localizationTO, name);
         return "redirect:/localization";
     }
 

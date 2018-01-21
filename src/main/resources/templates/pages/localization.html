@@ -2,14 +2,25 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout" th:with="title='Szczegóły lokalizacji'">
 <th:block layout:fragment="content">
-    <div class="jumbotron">
-        <h1 th:text="${localization.comment}"/>
-        <p th:text="${localization.localizationN}"/>
-        <p th:text="${localization.localizationE}"/>
-        <p th:text="${localization.isPrivate}"/>
-        <p th:text="${localization.ecology}"/>
-        <p th:text="${localization.adminMark}"/>
-        <p th:text="${localization.user.name}"/>
+    <div class="row">
+        <div class="col-md-6">
+            <iframe width="550" height="450" frameborder="0"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3087807.0882225134!2d20.263995394743745!3d51.87037251044432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1516548065895" >
+
+            </iframe>
+        </div>
+        <div class="col-md-6">
+            <div class="caption-full">
+                <h4 th:text="'Nazwa użytkownika: '+${localization.user.name}"></h4>
+                <h4 th:text="'Długość geograficzna Północna: '+${localization.localizationN}"></h4>
+                <h4 th:text="'Szerokość geograficzna Wschodnia: '+${localization.localizationE}"></h4>
+                <h4 th:text="'Ocena administratora: '+${localization.adminMark}"></h4>
+                <h4 th:text="'Status środowiska: '+${localization.ecology}"></h4>
+                <p th:text="${localization.comment}"></p>
+                <!--<a class="btn btn-success" th:href="@{/order/add/{id}(id = ${fish.id})}"  sec:authorize="hasAuthority('USER')" id="orderButtonFishDescriptionPage">Zamawiam</a>-->
+                <!--<a class="btn btn-warning" th:href="@{/fish/edit/{id}(id = ${fish.id})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Edytuj</a>-->
+            </div>
+        </div>
     </div>
 </th:block>
 </html>

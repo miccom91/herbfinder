@@ -3,17 +3,18 @@
       layout:decorator="layout" th:with="title='Szczegóły rośliny'">
 <th:block layout:fragment="content">
     <div class="row">
-        <div class="col-md-6">
-            <img class="img-responsive center" th:if="*{herb.image != null}" th:src="@{'data:image/jpg;base64,'+ *{herb.image}}" />
-        </div>
-        <div class="col-md-6">
-            <div class="caption-full">
-                <h4 th:text="${herb.name}"></h4>
-                <p th:text="${herb.description}"></p>
-                <!--<a class="btn btn-success" th:href="@{/order/add/{id}(id = ${fish.id})}"  sec:authorize="hasAuthority('USER')" id="orderButtonFishDescriptionPage">Zamawiam</a>-->
-                <!--<a class="btn btn-warning" th:href="@{/fish/edit/{id}(id = ${fish.id})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Edytuj</a>-->
-            </div>
+    <div class="col-md-6">
+        <img class="img-responsive center" th:if="*{herb.image != null}" th:src="@{'data:image/jpg;base64,'+ *{herb.image}}" />
+    </div>
+    <div class="col-md-6">
+        <div class="caption-full">
+            <h4 th:text="'Nazwa rośliny :' + ${herb.name}"></h4>
+            <h4 th:text="'Właściwości :' + ${herb.attribute}"></h4>
+            <p th:text="'Opis :'${herb.description}"></p>
+            <!--<a class="btn btn-success" th:href="@{/order/add/{id}(id = ${fish.id})}"  sec:authorize="hasAuthority('USER')" id="orderButtonFishDescriptionPage">Zamawiam</a>-->
+            <!--<a class="btn btn-warning" th:href="@{/fish/edit/{id}(id = ${fish.id})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Edytuj</a>-->
         </div>
     </div>
+</div>
 </th:block>
 </html>

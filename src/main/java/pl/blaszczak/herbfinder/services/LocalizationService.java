@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.Ecology;
 import pl.blaszczak.herbfinder.domain.Localization;
+import pl.blaszczak.herbfinder.dto.LocalizationTO;
 import pl.blaszczak.herbfinder.repository.LocalizationRepository;
 import pl.blaszczak.herbfinder.repository.UserRepository;
 
@@ -18,10 +19,11 @@ public class LocalizationService {
 
     private final UserRepository userRepository;
 
-    public void createLocalization(Localization localization,String name) {
-        localization.setIsPrivate(false);
-        localization.setAdminMark(0);
+    public void createLocalization(LocalizationTO localizationTO,String name) {
+        Localization localization = convertToLocalization(localizationTO);
         localization.setUser(userRepository.findByEmail(name));
+        localization.setAdminMark(0);
+        localization.setIsPrivate(false);
         localizationRepository.save(localization);
     }
 
@@ -41,5 +43,13 @@ public class LocalizationService {
         localizationRepository.delete(id);
     }
 
-
+    private Localization convertToLocalization(LocalizationTO localizationTO){
+        return Localization.builder().comment(localizationTO.getComment())
+                .herb(localizationTO.getHerb()).adminMark(localizationTO.getAdminMark())
+                .isPrivate(localizationTO.getIsPrivate())
+                .localizationE(localizationTO.getLocalizationE())
+                .localizationN(localizationTO.getLocalizationN())
+                .ecology(localizationTO.getEcology())
+                .build();
+    }
 }

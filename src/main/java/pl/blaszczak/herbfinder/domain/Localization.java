@@ -16,6 +16,7 @@ public class Localization {
     @Id
     @GeneratedValue
     private Integer id;
+    @Column(length = 10000)
     public String comment;
     private double localizationN;
     private double localizationE;
