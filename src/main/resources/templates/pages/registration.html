@@ -2,7 +2,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout" th:with="title='Rejestracja użytkownika'">
 <th:block layout:fragment="content">
-    <form class="form-horizontal" method="post" th:action="@{/user/registration}" th:object="${user}" id='registerForm'>
+    <form class="form-horizontal" method="post" th:action="@{/user/registration}" th:object="${userTO}" id='registerForm' enctype="multipart/form-data">
         <div class="form-group row">
             <div class="form-group">
                 <label class="col-lg-offset-3 col-lg-6">Plik ze zdięciem:</label>

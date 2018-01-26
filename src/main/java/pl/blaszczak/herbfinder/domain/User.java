@@ -27,6 +27,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private TypeUser typeUser;
     private Boolean isActive;
-    private MultipartFile multipartFile;
-    private String image;
+    @Column(length = 20000000)
+    private byte[] image;
 }

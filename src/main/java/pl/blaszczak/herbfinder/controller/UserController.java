@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.blaszczak.herbfinder.domain.User;
+import pl.blaszczak.herbfinder.dto.UserTO;
 import pl.blaszczak.herbfinder.services.UserService;
 
 @Controller
@@ -28,13 +29,13 @@ public class UserController {
     }
 
     @GetMapping("/registration")
-    public String prepareForm(User user) {
+    public String prepareForm(UserTO userTO) {
         return "pages/registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(@ModelAttribute User user) {
-        userService.createUser(user);
+    public String addUser(@ModelAttribute UserTO userTO) {
+        userService.createUser(userTO);
         return "redirect:/login";
     }
 

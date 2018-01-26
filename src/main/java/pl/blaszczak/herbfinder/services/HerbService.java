@@ -43,7 +43,7 @@ public class HerbService {
                 .name(herbTO.getName()).description(herbTO.getDescription()).build();
     }
 
-    private byte[] convertFileToByte(MultipartFile file) {
+    static byte[] convertFileToByte(MultipartFile file) {
         byte[] fileBin = null;
 
         try {
@@ -55,7 +55,7 @@ public class HerbService {
         return fileBin;
     }
 
-    private String convertByteToString(byte[] file) {
+    static String convertByteToString(byte[] file) {
         return Base64Utils.encodeToString(file);
     }
 }
