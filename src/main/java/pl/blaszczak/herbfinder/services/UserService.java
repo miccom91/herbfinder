@@ -43,6 +43,11 @@ public class UserService {
         return new UserTO(user, convertByteToString(user.getImage()));
     }
 
+    public UserTO getUserByName(String name){
+        User user = userRepository.findByName(name);
+        return new UserTO(user, convertByteToString(user.getImage()));
+    }
+
     public void updateUser(User user) {
         userRepository.saveAndFlush(user);
     }

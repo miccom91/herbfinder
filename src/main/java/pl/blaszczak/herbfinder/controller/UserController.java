@@ -57,4 +57,10 @@ public class UserController {
         model.addAttribute("user", userService.getUserById(id));
         return "pages/user";
     }
+
+    @GetMapping("/showyou/{name}")
+    public String showUser(@PathVariable String name, Model model){
+        model.addAttribute("user", userService.getUserByName(name));
+        return "pages/user";
+    }
 }

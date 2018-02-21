@@ -8,4 +8,5 @@ import pl.blaszczak.herbfinder.domain.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByEmail(String email);                   //select * from users where name like name;
+    User findByName(String name);
 }

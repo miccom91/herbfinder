@@ -44,7 +44,7 @@
                 <li><a th:href="@{/user/registration}"><span class="glyphicon glyphicon-leaf"></span> Rejestracja</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" sec:authorize="isAuthenticated()">
-                <li><a th:inline="text"><span class="glyphicon glyphicon-user"></span> [[${#httpServletRequest.remoteUser}]]</a></li>
+                <li><a th:href="@{/user/showyou/{name} (name=${#httpServletRequest.remoteUser})}" th:inline="text"><span class="glyphicon glyphicon-user"></span> [[${#httpServletRequest.remoteUser}]]</a></li>
                 <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Wyloguj</a></li>
             </ul>
         </div>
