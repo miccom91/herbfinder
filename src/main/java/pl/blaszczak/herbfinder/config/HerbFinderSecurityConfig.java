@@ -20,8 +20,9 @@ public class HerbFinderSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user").permitAll()
-                //.hasAuthority("ADMIN")
+                .antMatchers("/user").hasAuthority("ADMIN")
+                .antMatchers("attribute/create").hasAuthority("ADMIN")
+                .antMatchers("/user/showyou").hasAnyAuthority("USER","ADMIN")
                 .and().formLogin().loginPage("/login")
                 .and().exceptionHandling().accessDeniedPage("/errors");
         http.csrf().disable();
