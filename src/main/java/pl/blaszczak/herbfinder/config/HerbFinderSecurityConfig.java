@@ -21,8 +21,15 @@ public class HerbFinderSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/user").hasAuthority("ADMIN")
-                .antMatchers("attribute/create").hasAuthority("ADMIN")
+                .antMatchers("/attribute/create").hasAuthority("ADMIN")
+                .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
                 .antMatchers("/user/showyou").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/attribute/create").hasAuthority("ADMIN")
+                .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/attribute/edit/*").hasAuthority("ADMIN")
+                .antMatchers("/attribute/delete/*").hasAuthority("ADMIN")
+//                .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
+//                .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
                 .and().formLogin().loginPage("/login")
                 .and().exceptionHandling().accessDeniedPage("/errors");
         http.csrf().disable();

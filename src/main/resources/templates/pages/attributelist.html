@@ -1,5 +1,6 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout"
       th:with="title='Lista własciwości'">
 <th:block layout:fragment="content">
@@ -15,9 +16,9 @@
             <tbody>
             <tr th:each="attribute: ${attributeList}">
                 <td th:text="${attribute.description}"></td>
-                <td><a th:href="@{/attribute/edit/{id}(id = ${attribute.id})}"
-                       class="btn btn-success">Edytuj </a></td>
-                <td><a th:href="@{/attribute/delete/{id}(id = ${attribute.id})}"
+                <td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/attribute/edit/{id}(id = ${attribute.id})}"
+                       class="btn btn-success" >Edytuj </a></td>
+                <td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/attribute/delete/{id}(id = ${attribute.id})}"
                        class="btn btn-danger">USUŃ </a></td>
             </tr>
             </tbody>
