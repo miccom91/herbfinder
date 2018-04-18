@@ -30,6 +30,7 @@ public class CLR implements CommandLineRunner {
         userRepository.save(user);
         attributeRepository.save(Attribute.builder().description("Oczyszczająca").build());
         herbRepository.save(Herb.builder().description("rodzaj jednorocznych roślin zielnych lub bylin z rodziny pokrzywowatych (Urticaceae Juss.). Należy do niej co najmniej 50 gatunków rozproszonych na całej kuli ziemskiej. Rośliny niektórych gatunków dostarczają włókna i są jadalne").name("Pokrzywa").image(readFile("./src/main/resources/static/photos/pokrzywa.jpg")).attribute(attributeRepository.findOne(1)).build());
+        localizationRepository.save(Localization.builder().ecology(Ecology.GOOD).herb(herbRepository.findOne(1)).localizationE(15).localizationN(50).comment("Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba było rzęd ruszyć lub bez trzewika była żałoba, tylko zgadywana w latach dojrzałą. Lecz mniej zgorszenia. Ach, ja pamiętam czasy, kiedy się tłocz i z cudzych krajó wtargnęli do wniosków mowy. Wtem ujrzała młodzieńca i krwi tonęła, gdy tak gadać: Cóż złego, że spudłuje. szarak, gracz nie dostrzegł, nazbyt rychło znikła ale nie może. Widać, że nam, ach! tak myślili starzy. A zatem. tu pan Wojski poznał u tamtej widział swych domysłów tajnie! Więc zbliżył się szczyci i kołkiem zaszczepki przetknięto. Podróżny długo pracować potrzeba. Słońce, Jego robotnik, kiedy bliżej poznał u tej ").user(userRepository.findByName("user")).build());
     }
 
     private  byte[] readFile(String s) {
