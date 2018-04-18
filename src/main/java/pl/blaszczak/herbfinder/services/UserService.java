@@ -62,4 +62,9 @@ public class UserService {
                 .password(userTO.getPassword())
                 .build();
     }
+    public void activeUser(String name){
+        User temp = userRepository.findByName(name);
+        temp.setIsActive(true);
+        userRepository.saveAndFlush(temp);
+    }
 }

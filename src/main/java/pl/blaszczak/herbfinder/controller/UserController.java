@@ -63,4 +63,10 @@ public class UserController {
         model.addAttribute("user", userService.getUserByName(name));
         return "pages/user";
     }
+
+    @GetMapping("/setactive/{name}")
+    public String setActive(@PathVariable String name){
+        userService.activeUser(name);
+        return "redirect:/user";
+    }
 }

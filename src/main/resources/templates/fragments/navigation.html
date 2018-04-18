@@ -21,21 +21,21 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" sec:authorize="isAuthenticated()">Lokalizacja<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a th:href="@{/localization}" >Lista lokalizacji</a></li>
-                        <li><a th:href="@{/localization/create}" >Dodanie nowej lokalizacja </a></li>
+                        <li><a th:href="@{/localization/create}" sec:authorize="hasAuthority('USER')" >Dodanie nowej lokalizacja </a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" sec:authorize="isAuthenticated()">Rośliny<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a th:href="@{/herb}" >Lista Roślin</a></li>
-                        <li><a th:href="@{/herb/create}" >Dodanie nowej rośliny</a></li>
+                        <li><a th:href="@{/herb/create}" sec:authorize="hasAuthority('ADMIN')">Dodanie nowej rośliny</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" sec:authorize="isAuthenticated()">Właściwości<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a th:href="@{/attribute}" >Lista Właściwości</a></li>
-                        <li><a th:href="@{/attribute/create}" >Dodanie nowej właściwości</a></li>
+                        <li><a th:href="@{/attribute/create}" sec:authorize="hasAuthority('ADMIN')">Dodanie nowej właściwości</a></li>
                     </ul>
                 </li>
             </ul>

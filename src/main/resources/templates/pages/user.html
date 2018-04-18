@@ -1,11 +1,12 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout" th:with="title='Szczegóły konta'">
 <th:block layout:fragment="content">
     <div class="row">
         <div class="col-md-6">
             <img class="img-responsive center" th:if="*{user.image != null}"
-                 th:src="@{'data:image/jpg;base64,'+ *{user.image}}"/>
+                 height="350px" width="250px" th:src="@{'data:image/jpg;base64,'+ *{user.image}}"/>
         </div>
         <div class="col-md-6">
             <div class="caption-full">
@@ -15,8 +16,7 @@
                 <h4 th:text="'Numer pocztowy :' + ${user.postnumber}"></h4>
                 <h4 th:text="'Czy konto jest aktywowanę :' + ${user.isActive}"></h4>
                 <h4 th:text="'Typ użytkownika :' + ${user.typeUser}"></h4>
-                <!--<a class="btn btn-success" th:href="@{/order/add/{id}(id = ${fish.id})}"  sec:authorize="hasAuthority('USER')" id="orderButtonFishDescriptionPage">Zamawiam</a>-->
-                <!--<a class="btn btn-warning" th:href="@{/fish/edit/{id}(id = ${fish.id})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Edytuj</a>-->
+                <a class="btn btn-warning" th:if="${user.isActive} == false" th:href="@{/user/setactive/{name}(name = ${user.name})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Aktywuj</a>
             </div>
         </div>
     </div>

@@ -1,19 +1,21 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout" th:with="title='Szczegóły rośliny'">
 <th:block layout:fragment="content">
     <div class="row">
         <div class="col-md-6">
             <img class="img-responsive center" th:if="*{herb.image != null}"
-                 th:src="@{'data:image/jpg;base64,'+ *{herb.image}}"/>
+                 height="400px" width="400px" th:src="@{'data:image/jpg;base64,'+ *{herb.image}}"/>
         </div>
         <div class="col-md-6">
             <div class="caption-full">
                 <h4 th:text="'Nazwa rośliny :' + ${herb.name}"></h4>
-                <h4 th:text="'Właściwości :' + ${herb.attribute}"></h4>
-                <p th:text="'Opis :'${herb.description}"></p>
-                <!--<a class="btn btn-success" th:href="@{/order/add/{id}(id = ${fish.id})}"  sec:authorize="hasAuthority('USER')" id="orderButtonFishDescriptionPage">Zamawiam</a>-->
-                <!--<a class="btn btn-warning" th:href="@{/fish/edit/{id}(id = ${fish.id})}" sec:authorize="hasAuthority('ADMIN')" id="editButtonFishDescriptionPage">Edytuj</a>-->
+                <h4 th:text="'Właściwości :' + ${herb.attribute.description}"></h4>
+                <h4>Opis:</h4>
+                <p th:text="${herb.description}"></p>
+                <td><a th:href="@{/herb/edit/{id}(id = ${herb.id})}" sec:authorize="hasAuthority('ADMIN')"
+                       class="btn btn-success">EDYTUJ </a></td>
             </div>
         </div>
     </div>

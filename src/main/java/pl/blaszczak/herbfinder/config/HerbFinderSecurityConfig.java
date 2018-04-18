@@ -28,8 +28,8 @@ public class HerbFinderSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
                 .antMatchers("/attribute/edit/*").hasAuthority("ADMIN")
                 .antMatchers("/attribute/delete/*").hasAuthority("ADMIN")
-//                .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
-//                .antMatchers("/attribute").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/localization").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/localization/create").hasAuthority("USER")
                 .and().formLogin().loginPage("/login")
                 .and().exceptionHandling().accessDeniedPage("/errors");
         http.csrf().disable();
