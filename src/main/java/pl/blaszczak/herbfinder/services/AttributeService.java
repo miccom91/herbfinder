@@ -1,6 +1,7 @@
 package pl.blaszczak.herbfinder.services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.Attribute;
 import pl.blaszczak.herbfinder.dto.AttributeTO;
@@ -10,10 +11,10 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class AttributeService {
 
-    private final AttributeRepository attributeRepository;
+    @Autowired
+    private AttributeRepository attributeRepository;
 
     public List<Attribute> getListAllAttributes() {
         return attributeRepository.findAll();

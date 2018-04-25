@@ -1,16 +1,18 @@
 package pl.blaszczak.herbfinder.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor   //pojo(doczytac) tworzenie prostych konstr.
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
+//pojo(doczytac) tworzenie prostych konstr.
 public class Herb {
 
     @Id
@@ -21,6 +23,6 @@ public class Herb {
     private String description;
     @ManyToOne
     private Attribute attribute;
-    @Column(length = 20000000)
+    @Column(length = 5000000)
     private byte[] image;
 }

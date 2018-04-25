@@ -1,6 +1,6 @@
 package pl.blaszczak.herbfinder.services;
 
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class HerbService {
 
-    private final HerbRepository herbRepository;
+    @Autowired
+    private HerbRepository herbRepository;
 
     public List<Herb> getListAllHerbs() {
         return herbRepository.findAll();

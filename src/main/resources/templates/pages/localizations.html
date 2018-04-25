@@ -9,7 +9,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Id</th>
+                <th>Nazwa rośliny</th>
                 <th>Współrzędne Północne</th>
                 <th>Współrzędne Wschodnie</th>
                 <th>Srodowisko</th>
@@ -18,7 +18,7 @@
             </thead>
             <tbody >
             <tr th:each="localization: ${localizationList}">
-                <td th:text="${localization.id}"></td>
+                <td th:text="${localization.getHerb().getName()}"></td>
                 <td th:text="${localization.localizationN}"></td>
                 <td th:text="${localization.localizationE}"></td>
                 <td th:text="${localization.ecology}"></td>

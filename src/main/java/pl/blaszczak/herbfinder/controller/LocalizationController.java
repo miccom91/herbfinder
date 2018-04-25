@@ -1,6 +1,7 @@
 package pl.blaszczak.herbfinder.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,11 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/localization")
-@AllArgsConstructor
 public class LocalizationController {
-
-    private final LocalizationService localizationService;
-
-    private final HerbService herbService;
+    @Autowired
+    private LocalizationService localizationService;
+    @Autowired
+    private  HerbService herbService;
 
     @GetMapping
     public String getAllLocalizations(Model model) {

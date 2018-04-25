@@ -1,6 +1,7 @@
 package pl.blaszczak.herbfinder.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +12,9 @@ import pl.blaszczak.herbfinder.services.UserService;
 @Controller
 //oznaczamy nią kontrolery, tj. klasy, które będą obsługiwały zapytania wysyłane poprzez przeglądarkę od użytkowników
 @RequestMapping("/user")
-@AllArgsConstructor
 public class UserController {
-
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public String getAllUser(Model model) {

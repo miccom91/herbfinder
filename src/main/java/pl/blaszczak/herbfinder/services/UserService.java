@@ -1,6 +1,7 @@
 package pl.blaszczak.herbfinder.services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.TypeUser;
@@ -15,11 +16,11 @@ import static pl.blaszczak.herbfinder.services.HerbService.convertFileToByte;
 
 @Service
 //stereotyp który wskazuje, że ta klasa jest serwisem, tzn. oferuje pewną logikę biznesową którą będziemy wykorzystywać w innych miejscach np. kontrolerach; ogólnie w wyższych warstwach
-@AllArgsConstructor
 public class UserService {
-
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public List<User> getListAllUser() {
         return userRepository.findAll();

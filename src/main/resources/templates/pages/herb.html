@@ -5,8 +5,8 @@
 <th:block layout:fragment="content">
     <div class="row">
         <div class="col-md-6">
-            <img class="img-responsive center" th:if="*{herb.image != null}"
-                 height="400px" width="400px" th:src="@{'data:image/jpg;base64,'+ *{herb.image}}"/>
+            <img class="img-responsive center" th:if="${herb.image != null}"
+                 height="400px" width="400px" th:src="@{'data:image/jpg;base64,'+ ${herb.image}}"/>
         </div>
         <div class="col-md-6">
             <div class="caption-full">

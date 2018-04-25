@@ -2,6 +2,7 @@ package pl.blaszczak.herbfinder.services;
 
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.blaszczak.herbfinder.domain.Ecology;
 import pl.blaszczak.herbfinder.domain.Localization;
@@ -12,12 +13,11 @@ import pl.blaszczak.herbfinder.repository.UserRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class LocalizationService {
-
-    private final LocalizationRepository localizationRepository;
-
-    private final UserRepository userRepository;
+    @Autowired
+    private LocalizationRepository localizationRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public void createLocalization(LocalizationTO localizationTO,String name) {
         Localization localization = convertToLocalization(localizationTO);

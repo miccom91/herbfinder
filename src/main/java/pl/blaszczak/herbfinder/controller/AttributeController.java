@@ -2,6 +2,7 @@ package pl.blaszczak.herbfinder.controller;
 
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,10 +15,9 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/attribute")
-@AllArgsConstructor
 public class AttributeController {
-
-    private final AttributeService attributeService;
+    @Autowired
+    private AttributeService attributeService;
 
     @GetMapping
     public String getAllAttributes(Model model) {
